@@ -1,0 +1,26 @@
+clear;clc
+%% ¶ÁÈ¡Êý¾Ý
+cm1_1=imread('1cm/1cm£¨1£©.bmp');
+cm1_2=imread('1cm/1cm£¨2£©.bmp');
+cm1_11=rgb2hsv(cm1_1);
+cm1_11(:,:,3)=Moire_fringes(cm1_11(:,:,3));
+cm1_11=hsv2rgb(cm1_11);
+figure,
+subplot(1,2,1),imshow(cm1_1);
+subplot(1,2,2),imshow(cm1_11);
+cm1_21=rgb2hsv(cm1_2);
+cm1_21(:,:,3)=Moire_fringes(cm1_21(:,:,3));
+cm1_21=hsv2rgb(cm1_21);
+figure,
+subplot(1,2,1),imshow(cm1_2);
+subplot(1,2,2),imshow(cm1_21);
+figure,
+subplot(1,2,1),imshow((cm1_1-cm1_2),[]);
+subplot(1,2,2),imshow((cm1_11-cm1_21),[]);
+cm1_3=cm1_1-cm1_2;
+cm1_31=rgb2hsv(cm1_3);
+cm1_31(:,:,3)=Moire_fringes(cm1_31(:,:,3));
+cm1_31=hsv2rgb(cm1_31);
+figure,
+subplot(1,2,1),imshow(cm1_3);
+subplot(1,2,2),imshow(cm1_31);
